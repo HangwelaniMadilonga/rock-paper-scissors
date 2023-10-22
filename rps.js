@@ -28,23 +28,28 @@ let playRound = (getComputerChoice, playerSelection) => {
         console.log("It is a draw")
     }
     if (toLower(computerSelection) === "rock" && toLower(playerSelection) === "paper") {
-        icScore = icScore + 1;
-        console.log(`You Lose! ${sPaper} beats Rock`)
+        ipScore = icScore + 1;
+        console.log(`You Win! ${sPaper} beats Rock`)
     }
     if (toLower(computerSelection) === "rock" && toLower(playerSelection) === "scissor") {
         icScore = icScore + 1;
+        console.log(`You Lose! ${sScissor} beats Rock`)
     }
     if (toLower(computerSelection) === "paper" && toLower(playerSelection) === "rock") {
         icScore = icScore + 1;
+        console.log(`You Lose! ${sPaper} beats Rock`)
     }
     if (toLower(computerSelection) === "paper" && toLower(playerSelection) === "scissor") {
         icScore = icScore + 1;
+        console.log(`You Win! ${sPaper} beats Scissors`)
     }
     if (toLower(computerSelection) === "scissor" && toLower(playerSelection) === "rock") {
         icScore = icScore + 1;
+        console.log(`You Win! ${sRock} beats Scissors`)
     }
     if (toLower(computerSelection) === "scissor" && toLower(playerSelection) === "paper") {
         cScore = cScore + 1;
+        console.log(`You Lose! ${sScissors} beats Paper`)
     }
 
 }
