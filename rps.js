@@ -17,7 +17,7 @@ let getComputerChoice = () => {
     if (iRandom === 3) return "Scissors";
 
 }
-//We 
+//We Have a function that plays the game for one round
 
 let playRound = (getComputerChoice, playerSelection) => {
 
@@ -54,4 +54,21 @@ let playRound = (getComputerChoice, playerSelection) => {
 
 }
 
+// A function for playing the game 5 times and then declaring the winner
+
+let fullGame = (playRound) => {
+    for (i = 0; i < 5; i++) {
+        playRound();
+    }
+    if (ipScore > icScore) {
+        console.log(`You win! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
+    }
+    if (ipScore < icScore) {
+        console.log(`You Lose! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
+    }
+    if (ipScore = icScore) {
+        console.log(`It is a draw! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
+    }
+
+}
 
