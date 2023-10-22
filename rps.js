@@ -1,13 +1,13 @@
 // We have variables for keeping score
-let ipScore = 0;
-let icScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 // Here are the variables for what will appear when we have an output to the user.
 let sPaper = "Paper";
 let sRock = "Rock";
 let sScissors = "Scissors";
 
-//Funtion for determining the computers choice in a random way
+//Funtion for determining the computers choice in a random way in order to get
 let getComputerChoice = () => {
 
     let iRandom = Math.floor(Math.random() * 3) + 1;
@@ -16,59 +16,61 @@ let getComputerChoice = () => {
     if (iRandom === 2) return "Paper";
     if (iRandom === 3) return "Scissors";
 
-}
-//We Have a function that plays the game for one round
+};
+//We Have a function that plays the game for one round 
 
-let playRound = (getComputerChoice, playerSelection) => {
+let playRound = () => {
 
     let computerSelection = getComputerChoice();
     let playerSelection = prompt("Input Rock,Paper or Scissors");
 
-    if (toLower(computerSelection) === toLower(playerSelection)) {
+    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
         console.log("It is a draw");
     }
-    if (toLower(computerSelection) === "rock" && toLower(playerSelection) === "paper") {
-        ipScore = ipScore + 1;
+    if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
+        playerScore = playerScore + 1;
         console.log(`You Win! ${sPaper} beats Rock`);
     }
-    if (toLower(computerSelection) === "rock" && toLower(playerSelection) === "scissor") {
-        icScore = icScore + 1;
+    if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
+        computerScore = computerScore + 1;
         console.log(`You Lose! ${sRock} beats Scissors`);
     }
-    if (toLower(computerSelection) === "paper" && toLower(playerSelection) === "rock") {
-        icScore = icScore + 1;
+    if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
+        computerScore = computerScore + 1;
         console.log(`You Lose! ${sPaper} beats Rock`);
     }
-    if (toLower(computerSelection) === "paper" && toLower(playerSelection) === "scissor") {
-        ipScore = ipScore + 1;
+    if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
+        playerScore = playerScore + 1;
         console.log(`You Win! ${sScissors} beats Paper`);
     }
-    if (toLower(computerSelection) === "scissor" && toLower(playerSelection) === "rock") {
-        ipScore = ipScore + 1;
+    if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
+        playerScore = playerScore + 1;
         console.log(`You Win! ${sRock} beats Scissors`);
     }
-    if (toLower(computerSelection) === "scissor" && toLower(playerSelection) === "paper") {
-        cScore = cScore + 1;
+    if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
+        computerScore = computerScore + 1;
         console.log(`You Lose! ${sScissors} beats Paper`);
     }
 
-}
+};
 
-// A function for playing the game 5 times and then declaring the winner
+// A function for playing the game 5 times and then declaring the winner 
 
-let fullGame = (playRound) => {
-    for (i = 0; i < 5; i++) {
+let fullGame = () => {
+    for (let i = 0; i < 5; i++) {
         playRound();
-    }
-    if (ipScore > icScore) {
-        console.log(`You win! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
-    }
-    if (ipScore < icScore) {
-        console.log(`You Lose! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
-    }
-    if (ipScore = icScore) {
-        console.log(`It is a draw! \n Player score: ${ipScore} \n Computer score: ${icScore} `)
-    }
+    };
+    if (playerScore > computerScore) {
+        console.log(`You win! \n Player score: ${playerScore} \n Computer score: ${computerScore}`);
+    };
+    if (playerScore < computerScore) {
+        console.log(`You Lose! \n Player score: ${playerScore} \n Computer score: ${computerScore} `);
+    };
+    if (playerScore === computerScore) {
+        console.log(`It is a draw! \n Player score: ${playerScore} \n Computer score: ${computerScore} `);
+    };
 
-}
+};
+
+fullGame();
 
