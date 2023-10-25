@@ -2,7 +2,11 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(59, 86, 92);
+    background-color: rgb(68, 98, 105);
+}
+
+p {
+    color: rgb(179, 199, 199);
 }
 
 #nav-text {
@@ -47,11 +51,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 2rem;
 }
 
 #main-game {
     border: 3px solid black;
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    /* justify-content: space-between; */
+
+}
+
+#first-image {
+
+    transform: scaleX(-1);
+
+
+
 }
