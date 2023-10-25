@@ -1,22 +1,22 @@
 // We have variables for keeping score
-// let playerScore = 0;
-// let computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-// Here are the variables for what will appear when we have an output to the user.
-// let sPaper = "Paper";
-// let sRock = "Rock";
-// let sScissors = "Scissors";
+// Here are the variables that represent the different buttons for clicking in the game.
+let sPaper = document.querySelector('#paper');
+let sRock = document.querySelector('#rock');
+let sScissors = document.querySelector('#scissors');
 
-// Funtion for determining the computers choice in a random way in order to get
-// let getComputerChoice = () => {
+// Function for determining the computers choice in a random way in order to get the choice of the computer.
+let getComputerChoice = () => {
 
-//     let iRandom = Math.floor(Math.random() * 3) + 1;
+    let iRandom = Math.floor(Math.random() * 3) + 1;
 
-//     if (iRandom === 1) return "Rock";
-//     if (iRandom === 2) return "Paper";
-//     if (iRandom === 3) return "Scissors";
+    if (iRandom === 1) return "Rock";
+    if (iRandom === 2) return "Paper";
+    if (iRandom === 3) return "Scissors";
 
-// };
+};
 //We Have a function that plays the game for one round 
 
 // let playRound = () => {

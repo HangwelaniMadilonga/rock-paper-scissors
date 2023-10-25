@@ -55,7 +55,8 @@ p {
 }
 
 #main-game {
-    border: 3px solid black;
+
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -73,7 +74,36 @@ p {
 #first-image {
 
     transform: scaleX(-1);
+}
 
+.three-iamges-rps {
+    width: 40%;
 
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.2rem;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    /* justify-content: space-between; */
+
+}
+
+.toggle-text {
+    font-size: 2rem;
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+}
+
+.rps-buttons {
+    border: 1.2px solid rgb(7, 6, 6);
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(179, 199, 199);
+    width: 20%;
+    height: 40px;
+    cursor: pointer;
 
 }
