@@ -22,11 +22,15 @@ let getComputerChoice = () => {
 let buttons = document.querySelectorAll('.rps-buttons');
 let firstImage = document.querySelector('#first-image')
 let secondImage = document.querySelector('#second-image')
+
+
 for (let button of buttons) {
     button.addEventListener('click', function () {
         playerSelection = button.textContent;
         computerSelection = getComputerChoice();
         makeHandsShake();
+        changeImage(computerSelection, firstImage);
+        changeImage(playerSelection, secondImage);
         // Now 'playerSelection' holds the text content of the clicked button
 
     });
@@ -48,6 +52,24 @@ makeHandsShake = () => {
 
 };
 
+removeShakeClass = () => {
+    firstImage.classList.remove('slide-in-inverted');
+    secondImage.classList.remove('slide-in');
+
+};
+
+changeImage = (Selection, Image) => {
+    if (Selection === "Rock") {
+        Image.src = "Assets/rock (1).png"
+    }
+    if (Selection === "Paper") {
+        Image.src = "Assets/paper.png"
+    }
+    if (Selection === "Scissors") {
+        Image.src = "Assets/scissors.png"
+    }
+
+}
 // setTimeout(() => {
 //     firstImage.classList.add('slide-in-for-inverted');
 //     secondImage.classList.add('slide-in');
