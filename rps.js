@@ -1,13 +1,14 @@
-// We have variables for keeping score
+
 let playerScore = 0;
 let computerScore = 0;
 
-// Here are the variables that represent the different buttons for clicking in the game.
-let sPaper = document.querySelector('#paper');
-let sRock = document.querySelector('#rock');
-let sScissors = document.querySelector('#scissors');
+let playerSelection = "";
+let computerSelection = "";
 
-// Function for determining the computers choice in a random way in order to get the choice of the computer.
+let sPaper = "Paper";
+let sRock = "Rock";
+let sScissors = "Scissors";
+
 let getComputerChoice = () => {
 
     let iRandom = Math.floor(Math.random() * 3) + 1;
@@ -17,12 +18,47 @@ let getComputerChoice = () => {
     if (iRandom === 3) return "Scissors";
 
 };
+
+let buttons = document.querySelectorAll('.rps-buttons');
+let firstImage = document.querySelector('#first-image')
+let secondImage = document.querySelector('#second-image')
+for (let button of buttons) {
+    button.addEventListener('click', function () {
+        playerSelection = button.textContent;
+        computerSelection = getComputerChoice();
+        makeHandsShake();
+        // Now 'playerSelection' holds the text content of the clicked button
+
+    });
+};
+
+
+// const buttonText = button.textContent;
+
+// let getPlayerChoice = (td) => {
+//     doc
+// };
+
+// Function for determining the computers choice in a random way in order to get the choice of the computer.
+
+
+makeHandsShake = () => {
+    firstImage.classList.add('slide-in-inverted');
+    secondImage.classList.add('slide-in');
+
+};
+
+// setTimeout(() => {
+//     firstImage.classList.add('slide-in-for-inverted');
+//     secondImage.classList.add('slide-in');
+// }, 4000);
+
+
+
 //We Have a function that plays the game for one round 
 
 // let playRound = () => {
 
-//     let computerSelection = getComputerChoice();
-//     let playerSelection = prompt("Input Rock,Paper or Scissors");
 
 //     if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
 //         console.log("It is a draw");

@@ -107,3 +107,72 @@ p {
     cursor: pointer;
 
 }
+
+.animated-images {}
+
+.slide-in {
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+.slide-in-inverted {
+    animation: myAnimInverted 2s ease 0s 1 normal forwards;
+}
+
+
+@keyframes myAnim {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateY(-8px);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateY(8px);
+    }
+
+    80% {
+        transform: translateY(6.4px);
+    }
+
+    90% {
+        transform: translateY(-6.4px);
+    }
+}
+
+@keyframes myAnimInverted {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateY(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: scaleX(-1) translateY(-8px);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: scaleX(-1) translateY(8px);
+    }
+
+    80% {
+        transform: scaleX(-1) translateY(6.4px);
+    }
+
+    90% {
+        transform: scaleX(-1) translateY(-6.4px);
+    }
+}
