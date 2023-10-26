@@ -1,6 +1,8 @@
 
 let playerScore = 0;
 let computerScore = 0;
+let tieScore = 0;
+let roundCount = 1;
 
 let playerSelection = "";
 let computerSelection = "";
@@ -20,8 +22,13 @@ let getComputerChoice = () => {
 };
 
 let buttons = document.querySelectorAll('.rps-buttons');
-let firstImage = document.querySelector('#first-image')
-let secondImage = document.querySelector('#second-image')
+let firstImage = document.querySelector('#first-image');
+let secondImage = document.querySelector('#second-image');
+let playerWins = document.querySelector('#total-player-wins');
+let computerWins = document.querySelector('#total-computer-wins');
+let gameTies = document.querySelector('#total-ties');
+let totalRounds = document.querySelector('#round');
+
 
 
 for (let button of buttons) {
@@ -29,21 +36,24 @@ for (let button of buttons) {
         playerSelection = button.textContent;
         computerSelection = getComputerChoice();
         makeHandsShake();
-        changeImage(computerSelection, firstImage);
-        changeImage(playerSelection, secondImage);
-        // Now 'playerSelection' holds the text content of the clicked button
+
+        setTimeout(() => {
+            changeImage(computerSelection, firstImage);
+            changeImage(playerSelection, secondImage);
+            updateScores();
+
+
+            setTimeout(() => {
+                removeShakeClass();
+            }, 2000)
+        }, 1000);
+
+
 
     });
 };
 
 
-// const buttonText = button.textContent;
-
-// let getPlayerChoice = (td) => {
-//     doc
-// };
-
-// Function for determining the computers choice in a random way in order to get the choice of the computer.
 
 
 makeHandsShake = () => {
@@ -55,6 +65,9 @@ makeHandsShake = () => {
 removeShakeClass = () => {
     firstImage.classList.remove('slide-in-inverted');
     secondImage.classList.remove('slide-in');
+    firstImage.src = "Assets/rock (1).png"
+    secondImage.src = "Assets/rock (1).png"
+
 
 };
 
@@ -70,65 +83,52 @@ changeImage = (Selection, Image) => {
     }
 
 }
-// setTimeout(() => {
-//     firstImage.classList.add('slide-in-for-inverted');
-//     secondImage.classList.add('slide-in');
-// }, 4000);
+
+updateScores = () => {
+    if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
+        tieScore = tieScore + 1;
+        roundCount = roundCount + 1;
+        gameTies.textContent = `Ties : ${tieScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
+        playerScore = playerScore + 1;
+        roundCount = roundCount + 1;
+        playerWins.textContent = `Total wins : ${playerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
+        computerScore = computerScore + 1;
+        roundCount = roundCount + 1;
+        computerWins.textContent = `Total wins : ${computerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
+        computerScore = computerScore + 1;
+        roundCount = roundCount + 1;
+        computerWins.textContent = `Total wins : ${computerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
+        playerScore = playerScore + 1;
+        roundCount = roundCount + 1;
+        playerWins.textContent = `Total wins : ${playerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
+        playerScore = playerScore + 1;
+        roundCount = roundCount + 1;
+        playerWins.textContent = `Total wins : ${playerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+    if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
+        computerScore = computerScore + 1;
+        roundCount = roundCount + 1;
+        computerWins.textContent = `Total wins : ${computerScore}`;
+        totalRounds.textContent = `Round : ${roundCount}`;
+    }
+
+};
 
 
-
-//We Have a function that plays the game for one round 
-
-// let playRound = () => {
-
-
-//     if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {
-//         console.log("It is a draw");
-//     }
-//     if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-//         playerScore = playerScore + 1;
-//         console.log(`You Win! ${sPaper} beats Rock`);
-//     }
-//     if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-//         computerScore = computerScore + 1;
-//         console.log(`You Lose! ${sRock} beats Scissors`);
-//     }
-//     if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
-//         computerScore = computerScore + 1;
-//         console.log(`You Lose! ${sPaper} beats Rock`);
-//     }
-//     if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-//         playerScore = playerScore + 1;
-//         console.log(`You Win! ${sScissors} beats Paper`);
-//     }
-//     if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
-//         playerScore = playerScore + 1;
-//         console.log(`You Win! ${sRock} beats Scissors`);
-//     }
-//     if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-//         computerScore = computerScore + 1;
-//         console.log(`You Lose! ${sScissors} beats Paper`);
-//     }
-
-// };
-
-// A function for playing the game 5 times and then declaring the winner 
-
-// let fullGame = () => {
-//     for (let i = 0; i < 5; i++) {
-//         playRound();
-//     };
-//     if (playerScore > computerScore) {
-//         console.log(`You win! \n Player score: ${playerScore} \n Computer score: ${computerScore}`);
-//     };
-//     if (playerScore < computerScore) {
-//         console.log(`You Lose! \n Player score: ${playerScore} \n Computer score: ${computerScore} `);
-//     };
-//     if (playerScore === computerScore) {
-//         console.log(`It is a draw! \n Player score: ${playerScore} \n Computer score: ${computerScore} `);
-//     };
-
-// };
-
-// fullGame();
 
